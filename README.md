@@ -8,3 +8,17 @@
 <p>The icon automatically goes away once you have an active pet summoned.</p>
 <p>If you don't want to summon the pet and just wants to hide the icon, you can simply click on the icon and the icon will no longer visible.</p>
 <p>&nbsp;</p>
+
+Examples:
+
+Dismiss Pet:
+
+![](https://github.com/binlong/Hunter-Pet-Status/blob/main/gifs/dismiss_pet.gif)
+
+Summon Pet:
+
+![](https://github.com/binlong/Hunter-Pet-Status/blob/main/gifs/summon_pet.gif)
+
+Click Button:
+
+![](https://github.com/binlong/Hunter-Pet-Status/blob/main/gifs/click_button.gif)
