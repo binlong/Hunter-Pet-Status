@@ -8,10 +8,10 @@
 
 ## Features
 <ul>
- <li>If your pet is not summoned then it will display the `Call Pet` icon in middle of your screen.</li>
- <li>If your pet is dead then it will display the `Revive Pet` icon in middle of your screen.</li>
- <li>If your pet is not summoned during `Ready Check` then the appropriate icon will show up.</li>
- <li>If your pet is not summoned during `Pull Timer` then the appropriate icon will show up.</li>
+ <li>Display the `Call Pet` icon in middle of your screen when no active pet found.</li>
+ <li>Display the `Revive Pet` icon in middle of your screen when pet is dead.</li>
+ <li>Display appropriate icon when `Ready Check` is performed and no active pet found.</li>
+ <li>Display appropriate icon when `Pull Timer` is performed and no active pet found.</li>
 </ul>
 
 ## Examples:
