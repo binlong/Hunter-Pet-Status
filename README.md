@@ -3,7 +3,7 @@
  
 <p>Hunter Pet Status simply tracks to see if your pet is summoned in Dungeons or Raids instance.</p>
 <p>The addon shows an appropriate icon when you don't have active pet summoned.</p>
-<p>The icon will automatically dissapear once an active pet has been summoned or revived.</p>
+<p>The icon will automatically disappear once an active pet has been summoned or revived.</p>
 <p>If you don't want to summon the pet and just wants to hide the icon, you can simply click on the icon and the icon will no longer visible.</p>
 
 ## Features
