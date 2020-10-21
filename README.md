@@ -28,6 +28,9 @@ Click Button:
 
 ![](https://github.com/binlong/Hunter-Pet-Status/blob/main/gifs/click_button.gif)
 
+Ready Check:
+![](https://github.com/binlong/Hunter-Pet-Status/blob/main/gifs/ready_check.gif)
+
 Pull Timer:
 
 ![](https://github.com/binlong/Hunter-Pet-Status/blob/main/gifs/pull_timer.gif)
