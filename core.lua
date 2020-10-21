@@ -10,6 +10,10 @@ frame:RegisterEvent("PLAYER_REGEN_ENABLED")
 local rezButton = CreateFrame("Button", "HunterPetStatusRezButton", UIParent)
 rezButton:SetFrameStrata("BACKGROUND")
 rezButton:SetSize(128,128)
+rezButton:SetMovable(true)
+rezButton:RegisterForDrag("LeftButton")
+rezButton:SetScript("OnDragStart", rezButton.StartMoving)
+rezButton:SetScript("OnDragStop", rezButton.StopMovingOrSizing)
 -- Can click the button to hide if doesn't want to rez/summon pet yet
 rezButton:SetScript("OnClick", function() rezButton:Hide() end)
 
@@ -23,6 +27,10 @@ rezButton:Hide()
 local summonButton = CreateFrame("Button", "HunterPetStatusSummonButton", UIParent)
 summonButton:SetFrameStrata("BACKGROUND")
 summonButton:SetSize(128,128)
+summonButton:SetMovable(true)
+summonButton:RegisterForDrag("LeftButton")
+summonButton:SetScript("OnDragStart", summonButton.StartMoving)
+summonButton:SetScript("OnDragStop", summonButton.StopMovingOrSizing)
 -- Can click the button to hide if doesn't want to rez/summon pet yet
 summonButton:SetScript("OnClick", function() summonButton:Hide() end)
 
