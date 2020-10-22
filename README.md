@@ -1,5 +1,5 @@
 # Hunter Pet Status
- This addon is specifically for BM Hunters. If in the future that it needs to be updated for all hunters then I will make those changes.
+ This addon is specifically for BM and Survival Hunters. If in the future that it needs to be updated for Marksman then I will make those changes
  
 <p>Hunter Pet Status simply tracks to see if your pet is summoned in Dungeons or Raids instance.</p>
 <p>The addon shows an appropriate icon when you don't have active pet summoned.</p>
