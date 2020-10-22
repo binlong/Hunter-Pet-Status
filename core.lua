@@ -52,13 +52,15 @@ local function checkPetStatus()
 	end
 	inInstance, instanceType = IsInInstance()
 	if (inInstance and not UnitAffectingCombat("player")) then
-		if UnitClass("player"):lower() == "hunter" and currentSpecName:lower() == "beast mastery" then
-			if not IS_PET_ALIVE then
-				rezButton:Show()
-			elseif UnitExists("pet") and UnitHealth("pet") == 0 then
-				rezButton:Show()
-			elseif not UnitExists("pet") then
-				summonButton:Show()
+		if UnitClass("player"):lower() == "hunter" then
+			if currentSpecName:lower() == "beast mastery" or currentSpecName:lower() == "survival"then
+				if not IS_PET_ALIVE then
+					rezButton:Show()
+				elseif UnitExists("pet") and UnitHealth("pet") == 0 then
+					rezButton:Show()
+				elseif not UnitExists("pet") then
+					summonButton:Show()
+				end
 			end
 		end
 	end
