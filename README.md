@@ -12,6 +12,7 @@
  <li>Display the `Revive Pet` icon in middle of your screen when pet is dead.</li>
  <li>Display appropriate icon when `Ready Check` is performed and no active pet found.</li>
  <li>Display appropriate icon when `Pull Timer` is performed and no active pet found.</li>
+ <li>Display the `Wake Up` icon when pet is playing dead.</li>
 </ul>
 
 ## Examples:
