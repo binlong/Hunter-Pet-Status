@@ -2,6 +2,6 @@
 ## SavedVariables: IS_PET_ALIVE
 ## Title: Hunter Pet Status
 ## Author: Binlong
-## Version: 1.1
+## Version: 1.2
 
 core.lua

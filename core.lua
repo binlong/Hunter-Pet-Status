@@ -41,14 +41,37 @@ summonButton.texture = rezIcon
 summonButton:SetPoint("CENTER", 0, 0)
 summonButton:Hide()
 
+local wakeUpButton = CreateFrame("Button", "HunterPetStatusWakeUpButton", UIParent)
+wakeUpButton:SetFrameStrata("BACKGROUND")
+wakeUpButton:SetSize(128,128)
+wakeUpButton:SetMovable(true)
+wakeUpButton:RegisterForDrag("LeftButton")
+wakeUpButton:SetScript("OnDragStart", wakeUpButton.StartMoving)
+wakeUpButton:SetScript("OnDragStop", wakeUpButton.StopMovingOrSizing)
+-- Can click the button to hide if doesn't want to rez/summon pet yet
+wakeUpButton:SetScript("OnClick", function() wakeUpButton:Hide() end)
+
+local wakeUpIcon = wakeUpButton:CreateTexture(nil, "BACKGROUND")
+wakeUpIcon:SetTexture(589118)
+wakeUpIcon:SetAllPoints(wakeUpButton)
+wakeUpButton.texture = rezIcon
+wakeUpButton:SetPoint("CENTER", 0, 0)
+wakeUpButton:Hide()
+
+local function hideAllButtons()
+	rezButton:Hide()
+	summonButton:Hide()
+	wakeUpButton:Hide()
+end
+
 -- Checks if pet is summoned or dead
 local function checkPetStatus()
 	local currentSpec = GetSpecialization()
 	local currentSpecName = currentSpec and select(2, GetSpecializationInfo(currentSpec)) or "None"
+	local playDeadBuff = AuraUtil.FindAuraByName("Play Dead", "pet")
 	if UnitExists("pet") and UnitHealth("pet") ~= 0 then
 		IS_PET_ALIVE = true
-		rezButton:Hide()
-		summonButton:Hide()
+		hideAllButtons()
 	end
 	inInstance, instanceType = IsInInstance()
 	if (inInstance and not UnitAffectingCombat("player")) then
@@ -60,13 +83,14 @@ local function checkPetStatus()
 					rezButton:Show()
 				elseif not UnitExists("pet") then
 					summonButton:Show()
+				elseif playDeadBuff:lower() == "play dead" then
+					wakeUpButton:Show()
 				end
 			end
 		end
 	end
 	if (not inInstance) then
-		rezButton:Hide()
-		summonButton:Hide()
+		hideAllButtons()
 	end
 end
 
@@ -104,6 +128,19 @@ local function pullTimerEventHandler(self, event, ...)
 	end
 end
 
+-- This tracks to see if pet got a buff for "Play Dead"
+local petBuffFrame = CreateFrame("FRAME", "PetBuffFrame", nil, "BackdropTemplate")
+petBuffFrame:RegisterEvent("UNIT_AURA")
+
+local function checkPetBuffEventHandler(self, event, ...)
+	unit_id = ...
+	if unit_id == "pet" then
+		checkPetStatus()
+	end
+end
+
+
 frame:SetScript("OnEvent", eventHandler)
 petFrame:SetScript("OnEvent", petEventHandler)
 pullTimerFrame:SetScript("OnEvent", pullTimerEventHandler)
+petBuffFrame:SetScript("OnEvent", checkPetBuffEventHandler)
