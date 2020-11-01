@@ -68,7 +68,7 @@ end
 local function checkPetStatus()
 	local currentSpec = GetSpecialization()
 	local currentSpecName = currentSpec and select(2, GetSpecializationInfo(currentSpec)) or "None"
-	local playDeadBuff = AuraUtil.FindAuraByName("Play Dead", "pet")
+	local playDeadBuff = AuraUtil.FindAuraByName("Play Dead", "pet") or "None"
 	if UnitExists("pet") and UnitHealth("pet") ~= 0 then
 		IS_PET_ALIVE = true
 		hideAllButtons()
