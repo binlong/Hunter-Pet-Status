@@ -73,7 +73,7 @@ local function checkPetStatus()
 		IS_PET_ALIVE = true
 		hideAllButtons()
 	end
-	inInstance, instanceType = IsInInstance()
+	local inInstance, instanceType = IsInInstance()
 	if (inInstance and not UnitAffectingCombat("player")) then
 		if UnitClass("player"):lower() == "hunter" then
 			if currentSpecName:lower() == "beast mastery" or currentSpecName:lower() == "survival"then
