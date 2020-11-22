@@ -133,7 +133,7 @@ local petBuffFrame = CreateFrame("FRAME", "PetBuffFrame", nil, "BackdropTemplate
 petBuffFrame:RegisterEvent("UNIT_AURA")
 
 local function checkPetBuffEventHandler(self, event, ...)
-	unit_id = ...
+	local unit_id = ...
 	if unit_id == "pet" then
 		checkPetStatus()
 	end
