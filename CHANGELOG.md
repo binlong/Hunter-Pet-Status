@@ -1,5 +1,4 @@
-Version: 1.5.5
-
+## Version: 1.5.5
 <ul>
 	<li>Add manual changelog</li>
 </ul>
