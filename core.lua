@@ -69,7 +69,8 @@ local function checkPetStatus()
 	local currentSpec = GetSpecialization()
 	local currentSpecName = currentSpec and select(2, GetSpecializationInfo(currentSpec)) or "None"
 	local playDeadBuff = AuraUtil.FindAuraByName("Play Dead", "pet") or "None"
-	if UnitExists("pet") and UnitHealth("pet") ~= 0 then
+	-- if UnitExists("pet") and UnitHealth("pet") ~= 0 then
+	if UnitExists("pet") and not UnitIsDead("pet") then
 		IS_PET_ALIVE = true
 		hideAllButtons()
 	end
@@ -79,7 +80,7 @@ local function checkPetStatus()
 			if currentSpecName:lower() == "beast mastery" or currentSpecName:lower() == "survival"then
 				if not IS_PET_ALIVE then
 					rezButton:Show()
-				elseif UnitExists("pet") and UnitHealth("pet") == 0 then
+				elseif UnitExists("pet") and UnitIsDead("pet") then
 					rezButton:Show()
 				elseif not UnitExists("pet") then
 					summonButton:Show()
@@ -108,7 +109,7 @@ petFrame:RegisterEvent("PET_ATTACK_STOP")
 
 local function petEventHandler(self, event, ...)
 	if UnitClass("player"):lower() == "hunter" then
-		if UnitHealth("pet") == 0 then
+		if UnitIsDead("pet") then
 			IS_PET_ALIVE = false
 			RaidNotice_AddMessage(RaidBossEmoteFrame, "Pet has died!!!", ChatTypeInfo["RAID_BOSS_EMOTE"])
 		end

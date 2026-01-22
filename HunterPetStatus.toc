@@ -1,7 +1,7 @@
-## Interface: 90002
+## Interface: 120000
 ## SavedVariables: IS_PET_ALIVE
 ## Title: Hunter Pet Status
 ## Author: Binlong
-## Version: 1.4
+## Version: 1.5
 
 core.lua
