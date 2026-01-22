@@ -6,6 +6,7 @@ frame:RegisterEvent("PLAYER_ALIVE")
 frame:RegisterEvent("READY_CHECK")
 frame:RegisterEvent("UNIT_PET")
 frame:RegisterEvent("PLAYER_REGEN_ENABLED")
+frame:RegisterEvent("START_PLAYER_COUNTDOWN")
 
 local rezButton = CreateFrame("Button", "HunterPetStatusRezButton", UIParent)
 rezButton:SetFrameStrata("BACKGROUND")
@@ -116,19 +117,6 @@ local function petEventHandler(self, event, ...)
 	end
 end
 
--- Does a check on pull timer
-local pullTimerFrame = CreateFrame("FRAME", "PullTimerFrame", nil, "BackdropTemplate")
-pullTimerFrame:RegisterEvent("CHAT_MSG_ADDON")
-
-local function pullTimerEventHandler(self, event, ...)
-	local prefix, msg = ...
-	if prefix:lower() == "bigwigs" or prefix:lower() == "d4" then
-		if msg:lower():find("pull") or msg:lower():find("pt") then
-			checkPetStatus()
-		end
-	end
-end
-
 -- This tracks to see if pet got a buff for "Play Dead"
 local petBuffFrame = CreateFrame("FRAME", "PetBuffFrame", nil, "BackdropTemplate")
 petBuffFrame:RegisterEvent("UNIT_AURA")
@@ -143,5 +131,4 @@ end
 
 frame:SetScript("OnEvent", eventHandler)
 petFrame:SetScript("OnEvent", petEventHandler)
-pullTimerFrame:SetScript("OnEvent", pullTimerEventHandler)
 petBuffFrame:SetScript("OnEvent", checkPetBuffEventHandler)
