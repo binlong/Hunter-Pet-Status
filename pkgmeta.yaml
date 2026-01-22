@@ -1,7 +1,6 @@
 ignore:
-  - gifs/*
+  - ./gifs
   - .gitattributes
   - .gitignore
   - README.md
   - pkgmeta.yaml
-  - CHANGES.txt
