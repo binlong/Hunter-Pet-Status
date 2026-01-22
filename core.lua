@@ -112,6 +112,7 @@ local function petEventHandler(self, event, ...)
 	if UnitClass("player"):lower() == "hunter" then
 		if UnitIsDead("pet") then
 			IS_PET_ALIVE = false
+			RaidBossEmoteFrame:SetScale(3)
 			RaidNotice_AddMessage(RaidBossEmoteFrame, "Pet has died!!!", ChatTypeInfo["RAID_BOSS_EMOTE"])
 		end
 	end
