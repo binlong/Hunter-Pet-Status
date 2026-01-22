@@ -1,0 +1,6 @@
+ignore:
+  - gifs/*
+  - .gitattributes
+  - .gitignore
+  - README.md
+  - pkgmeta.yaml
