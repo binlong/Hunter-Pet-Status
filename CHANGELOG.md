@@ -1,4 +1,4 @@
-## Version: 1.5.0
+## Version: 1.5.1
 <ul>
-	<li>Add support for Midnight</li>
+	<li>Update version</li>
 </ul>
